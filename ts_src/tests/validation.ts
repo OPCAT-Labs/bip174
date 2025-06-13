@@ -43,6 +43,9 @@ tape('should not pass isPartialSig with invalid DER signature', t => {
     convertInputs.witnessUtxo.decode(keyVal);
   }, new RegExp('Decode Error: could not decode witnessUtxo with key 0xff'));
   t.throws(() => {
+    convertInputs.opcatUtxo.decode(keyVal);
+  }, new RegExp('Decode Error: could not decode opcatUtxo with key 0xff'));
+  t.throws(() => {
     convertInputs.finalScriptSig.decode(keyVal);
   }, new RegExp('Decode Error: could not decode finalScriptSig with key 0xff'));
   t.throws(() => {

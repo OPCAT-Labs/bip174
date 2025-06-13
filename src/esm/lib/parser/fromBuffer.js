@@ -267,6 +267,13 @@ export function psbtFromKeyVals(
           checkKeyBuffer('input', keyVal.key, InputTypes.TAP_MERKLE_ROOT);
           input.tapMerkleRoot = convert.inputs.tapMerkleRoot.decode(keyVal);
           break;
+        case InputTypes.OPCAT_UTXO:
+          checkKeyBuffer('input', keyVal.key, InputTypes.OPCAT_UTXO);
+          if (input.opcatUtxo !== undefined) {
+            throw new Error('Format Error: Input has multiple OPCAT_UTXO');
+          }
+          input.opcatUtxo = convert.inputs.opcatUtxo.decode(keyVal);
+          break;
         default:
           // This will allow inclusion during serialization.
           if (!input.unknownKeyVals) input.unknownKeyVals = [];

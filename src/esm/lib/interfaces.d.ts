@@ -39,6 +39,7 @@ export interface PsbtInputUpdate {
     tapBip32Derivation?: TapBip32Derivation[];
     tapInternalKey?: TapInternalKey;
     tapMerkleRoot?: TapMerkleRoot;
+    opcatUtxo?: OpcatUtxo;
 }
 export interface PsbtInputExtended extends PsbtInput {
     [index: string]: any;
@@ -111,4 +112,9 @@ export declare type TransactionIOCountGetter = (txBuffer: Uint8Array) => {
 };
 export declare type TransactionVersionSetter = (version: number, txBuffer: Uint8Array) => Uint8Array;
 export declare type TransactionLocktimeSetter = (locktime: number, txBuffer: Uint8Array) => Uint8Array;
+export interface OpcatUtxo {
+    script: Uint8Array;
+    data: Uint8Array;
+    value: bigint;
+}
 export {};

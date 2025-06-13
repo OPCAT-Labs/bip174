@@ -23,6 +23,7 @@ export var InputTypes;
     'TAP_BIP32_DERIVATION';
   InputTypes[(InputTypes['TAP_INTERNAL_KEY'] = 23)] = 'TAP_INTERNAL_KEY';
   InputTypes[(InputTypes['TAP_MERKLE_ROOT'] = 24)] = 'TAP_MERKLE_ROOT';
+  InputTypes[(InputTypes['OPCAT_UTXO'] = 25)] = 'OPCAT_UTXO';
 })(InputTypes || (InputTypes = {}));
 export const INPUT_TYPE_NAMES = [
   'nonWitnessUtxo',
@@ -41,6 +42,7 @@ export const INPUT_TYPE_NAMES = [
   'tapBip32Derivation',
   'tapInternalKey',
   'tapMerkleRoot',
+  'opcatUtxo',
 ];
 export var OutputTypes;
 (function(OutputTypes) {

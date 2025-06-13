@@ -124,6 +124,7 @@ export class Psbt {
       if (
         ![
           'witnessUtxo',
+          'opcatUtxo',
           'nonWitnessUtxo',
           'finalScriptSig',
           'finalScriptWitness',

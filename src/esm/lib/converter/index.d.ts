@@ -11,6 +11,7 @@ import * as tapLeafScript from './input/tapLeafScript.js';
 import * as tapMerkleRoot from './input/tapMerkleRoot.js';
 import * as tapScriptSig from './input/tapScriptSig.js';
 import * as witnessUtxo from './input/witnessUtxo.js';
+import * as opcatUtxo from './input/opcatUtxo.js';
 import * as tapTree from './output/tapTree.js';
 declare const globals: {
     unsignedTx: typeof unsignedTx;
@@ -25,6 +26,7 @@ declare const inputs: {
     finalScriptWitness: typeof finalScriptWitness;
     porCommitment: typeof porCommitment;
     witnessUtxo: typeof witnessUtxo;
+    opcatUtxo: typeof opcatUtxo;
     bip32Derivation: {
         decode: (keyVal: import("../interfaces.js").KeyValue) => import("../interfaces.js").Bip32Derivation;
         encode: (data: import("../interfaces.js").Bip32Derivation) => import("../interfaces.js").KeyValue;

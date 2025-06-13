@@ -411,6 +411,23 @@ export const fixtures = {
         '////AtIClkkAAAAAF6kU4Yhw8sKX+/ylTFxvZFx3RaW2btqHAwAAAAAAAAAgAQIDBAUG' +
         'BwgJCgsMDQ4PAAECAwQFBgcICQoLDA0ODwAAAAAAAAAAAA==',
     },
+    {
+      method: 'updateInput',
+      addInputOutput: true,
+      args: [
+        0,
+        {
+          opcatUtxo: {
+            script: Buffer.from([1, 2, 3]),
+            data: Buffer.from([4, 5, 6, 7]),
+            value: 1234567890n,
+          },
+        },
+      ],
+      expected:
+        // tslint:disable-next-line:max-line-length
+        'cHNidP8BAFMBAAAAAdSnb/ld4fTAFho+U+qHapHtlTMa6NAS2B+XE4SYzl2GAwAAAAD/////AdIClkkAAAAAF6kU4Yhw8sKX+/ylTFxvZFx3RaW2btqHAAAAAAABGRHSApZJAAAAAAMBAgMEBAUGBwAA',
+    },
   ],
   invalid: [
     {
@@ -509,6 +526,19 @@ export const fixtures = {
       exception:
         'Data for input key witnessUtxo is incorrect: Expected { ' +
         'script: Uint8Array; value: bigint; } and got',
+    },
+    {
+      method: 'updateInput',
+      addInputOutput: true,
+      args: [
+        0,
+        {
+          opcatUtxo: { scripty: Buffer.from([1, 2, 3]), vyalue: 1234567890 },
+        },
+      ],
+      exception:
+        'Data for input key opcatUtxo is incorrect: Expected { ' +
+        'script: Uint8Array; data: Uint8Array; value: bigint; } and got',
     },
     {
       method: 'updateInput',

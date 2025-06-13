@@ -57,6 +57,7 @@ export interface PsbtInputUpdate {
   tapBip32Derivation?: TapBip32Derivation[];
   tapInternalKey?: TapInternalKey;
   tapMerkleRoot?: TapMerkleRoot;
+  opcatUtxo?: OpcatUtxo;
 }
 
 export interface PsbtInputExtended extends PsbtInput {
@@ -165,3 +166,9 @@ export type TransactionLocktimeSetter = (
   locktime: number,
   txBuffer: Uint8Array,
 ) => Uint8Array;
+
+export interface OpcatUtxo {
+  script: Uint8Array;
+  data: Uint8Array;
+  value: bigint;
+}

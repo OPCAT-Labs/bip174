@@ -21,6 +21,7 @@ export enum InputTypes {
   TAP_BIP32_DERIVATION, // multiple OK, key contains x-only pubkey
   TAP_INTERNAL_KEY,
   TAP_MERKLE_ROOT,
+  OPCAT_UTXO,
 }
 export const INPUT_TYPE_NAMES = [
   'nonWitnessUtxo',
@@ -39,6 +40,7 @@ export const INPUT_TYPE_NAMES = [
   'tapBip32Derivation',
   'tapInternalKey',
   'tapMerkleRoot',
+  'opcatUtxo',
 ];
 
 export enum OutputTypes {

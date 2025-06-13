@@ -27,6 +27,7 @@ const tapLeafScript = __importStar(require('./input/tapLeafScript.cjs'));
 const tapMerkleRoot = __importStar(require('./input/tapMerkleRoot.cjs'));
 const tapScriptSig = __importStar(require('./input/tapScriptSig.cjs'));
 const witnessUtxo = __importStar(require('./input/witnessUtxo.cjs'));
+const opcatUtxo = __importStar(require('./input/opcatUtxo.cjs'));
 const tapTree = __importStar(require('./output/tapTree.cjs'));
 const bip32Derivation = __importStar(require('./shared/bip32Derivation.cjs'));
 const checkPubkey = __importStar(require('./shared/checkPubkey.cjs'));
@@ -51,6 +52,7 @@ const inputs = {
   finalScriptWitness,
   porCommitment,
   witnessUtxo,
+  opcatUtxo,
   bip32Derivation: bip32Derivation.makeConverter(
     typeFields_js_1.InputTypes.BIP32_DERIVATION,
   ),

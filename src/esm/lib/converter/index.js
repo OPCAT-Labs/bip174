@@ -12,6 +12,7 @@ import * as tapLeafScript from './input/tapLeafScript.js';
 import * as tapMerkleRoot from './input/tapMerkleRoot.js';
 import * as tapScriptSig from './input/tapScriptSig.js';
 import * as witnessUtxo from './input/witnessUtxo.js';
+import * as opcatUtxo from './input/opcatUtxo.js';
 import * as tapTree from './output/tapTree.js';
 import * as bip32Derivation from './shared/bip32Derivation.js';
 import * as checkPubkey from './shared/checkPubkey.js';
@@ -33,6 +34,7 @@ const inputs = {
   finalScriptWitness,
   porCommitment,
   witnessUtxo,
+  opcatUtxo,
   bip32Derivation: bip32Derivation.makeConverter(InputTypes.BIP32_DERIVATION),
   redeemScript: redeemScript.makeConverter(InputTypes.REDEEM_SCRIPT),
   witnessScript: witnessScript.makeConverter(InputTypes.WITNESS_SCRIPT),

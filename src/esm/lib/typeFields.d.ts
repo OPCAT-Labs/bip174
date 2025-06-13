@@ -19,7 +19,8 @@ export declare enum InputTypes {
     TAP_LEAF_SCRIPT = 21,
     TAP_BIP32_DERIVATION = 22,
     TAP_INTERNAL_KEY = 23,
-    TAP_MERKLE_ROOT = 24
+    TAP_MERKLE_ROOT = 24,
+    OPCAT_UTXO = 25
 }
 export declare const INPUT_TYPE_NAMES: string[];
 export declare enum OutputTypes {

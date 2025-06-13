@@ -20,6 +20,7 @@ export declare const fixtures: {
             }[];
             witnessUtxo?: undefined;
             witnessScript?: undefined;
+            opcatUtxo?: undefined;
         } | {
             witnessUtxo: {
                 script: Buffer;
@@ -33,6 +34,22 @@ export declare const fixtures: {
                 path: string;
             }[];
             nonWitnessUtxo?: undefined;
+            opcatUtxo?: undefined;
+        } | {
+            opcatUtxo: {
+                script: Buffer;
+                data: Buffer;
+                value: bigint;
+            };
+            redeemScript: Buffer;
+            witnessScript: Buffer;
+            bip32Derivation: {
+                masterFingerprint: Buffer;
+                pubkey: Buffer;
+                path: string;
+            }[];
+            nonWitnessUtxo?: undefined;
+            witnessUtxo?: undefined;
         })[];
         updateOutputData: {
             bip32Derivation: {

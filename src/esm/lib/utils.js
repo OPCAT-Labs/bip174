@@ -35,7 +35,7 @@ export function getEnumLength(myenum) {
 }
 export function inputCheckUncleanFinalized(inputIndex, input) {
   let result = false;
-  if (input.nonWitnessUtxo || input.witnessUtxo) {
+  if (input.nonWitnessUtxo || input.witnessUtxo || input.opcatUtxo) {
     const needScriptSig = !!input.redeemScript;
     const needWitnessScript = !!input.witnessScript;
     const scriptSigOK = !needScriptSig || !!input.finalScriptSig;

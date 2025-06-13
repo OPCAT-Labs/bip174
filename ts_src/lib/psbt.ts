@@ -166,6 +166,7 @@ export class Psbt {
       if (
         ![
           'witnessUtxo',
+          'opcatUtxo',
           'nonWitnessUtxo',
           'finalScriptSig',
           'finalScriptWitness',
@@ -227,6 +228,7 @@ export {
   TransactionVersionSetter,
   WitnessScript,
   WitnessUtxo,
+  OpcatUtxo,
 } from './interfaces.js';
 
 export { checkForInput, checkForOutput } from './utils.js';

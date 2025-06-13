@@ -183,6 +183,17 @@ export declare const fixtures: {
             value: number;
         }[];
         expected: string;
+    } | {
+        method: string;
+        addInputOutput: boolean;
+        args: (number | {
+            opcatUtxo: {
+                script: Buffer;
+                data: Buffer;
+                value: bigint;
+            };
+        })[];
+        expected: string;
     })[];
     invalid: ({
         method: string;
@@ -256,6 +267,17 @@ export declare const fixtures: {
         addInputOutput: boolean;
         args: (number | {
             witnessUtxo: {
+                scripty: Buffer;
+                vyalue: number;
+            };
+        })[];
+        exception: string;
+        twice?: undefined;
+    } | {
+        method: string;
+        addInputOutput: boolean;
+        args: (number | {
+            opcatUtxo: {
                 scripty: Buffer;
                 vyalue: number;
             };
