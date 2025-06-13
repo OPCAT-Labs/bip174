@@ -1,6 +1,6 @@
 {
-  "name": "bip174",
-  "version": "3.0.0-rc.1",
+  "name": "@opcat-labs/bip174",
+  "version": "1.0.0",
   "description": "",
   "main": "src/cjs/lib/psbt.cjs",
   "module": "src/esm/lib/psbt.js",
