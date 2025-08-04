@@ -1,6 +1,6 @@
 {
   "name": "@opcat-labs/bip174",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "src/cjs/lib/psbt.cjs",
   "module": "src/esm/lib/psbt.js",
@@ -31,7 +31,7 @@
     "format:ci": "npm run prettier -- --check && npm run prettierjs -- --check",
     "gitdiff:ci": "npm run build && git diff --exit-code",
     "lint": "tslint -p tsconfig.json -c tslint.json",
-    "postbuild": "find src/cjs -type f -name \"*.js\" -exec bash -c 'mv \"$0\" \"${0%.js}.cjs\"' {} \\; && chmod +x fixup.cjs && node fixup.cjs",
+    "postbuild": "node fixup.cjs",
     "prettier": "prettier 'ts_src/**/*.ts' --ignore-path ./.prettierignore",
     "prettierjs": "prettier 'src/**/*.js' --ignore-path ./.prettierignore",
     "test": "npm run format:ci && npm run lint && npm run build && npm run coverage",
