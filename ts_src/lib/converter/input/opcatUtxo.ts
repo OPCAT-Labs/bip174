@@ -1,10 +1,10 @@
 import { KeyValue, OpcatUtxo } from '../../interfaces';
-import { InputTypes } from '../../typeFields.js';
+import { INPUT_TYPE_OPCAT_UTXO_BUF } from '../../typeFields.js';
 import * as tools from 'uint8array-tools';
 import * as varuint from 'varuint-bitcoin';
 
 export function decode(keyVal: KeyValue): OpcatUtxo {
-  if (keyVal.key[0] !== InputTypes.OPCAT_UTXO) {
+  if (!INPUT_TYPE_OPCAT_UTXO_BUF.equals(keyVal.key)) {
     throw new Error(
       'Decode Error: could not decode opcatUtxo with key 0x' +
         tools.toHex(keyVal.key),
@@ -55,7 +55,7 @@ export function encode(data: OpcatUtxo): KeyValue {
   offset += dataLenVar;
   result.set(opcatData, offset);
   return {
-    key: Uint8Array.from([InputTypes.OPCAT_UTXO]),
+    key: new Uint8Array(INPUT_TYPE_OPCAT_UTXO_BUF),
     value: result,
   };
 }

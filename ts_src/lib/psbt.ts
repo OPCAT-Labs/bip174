@@ -29,6 +29,8 @@ import {
 
 import * as tools from 'uint8array-tools';
 
+export { OPCAT_KEY, OPCAT_KEY_BUF } from './typeFields.js';
+
 export class Psbt {
   static fromBase64<T extends typeof Psbt>(
     this: T,
