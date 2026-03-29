@@ -4,6 +4,12 @@ export enum GlobalTypes {
 }
 export const GLOBAL_TYPE_NAMES = ['unsignedTx', 'globalXpub'];
 
+// compact sized key, 0xfe + 4 bytes
+// 4 bytes = 'cat'(tag) + '01'(version)
+export const OPCAT_KEY = parseInt('0xfe' + Buffer.from('cat').toString('hex') + '01', 16);
+export const OPCAT_KEY_BUF = Buffer.from('fe' + Buffer.from('cat').toString('hex') + '01', 'hex');
+export const INPUT_TYPE_OPCAT_UTXO_BUF = OPCAT_KEY_BUF;
+
 export enum InputTypes {
   NON_WITNESS_UTXO,
   WITNESS_UTXO,
@@ -21,7 +27,7 @@ export enum InputTypes {
   TAP_BIP32_DERIVATION, // multiple OK, key contains x-only pubkey
   TAP_INTERNAL_KEY,
   TAP_MERKLE_ROOT,
-  OPCAT_UTXO,
+  OPCAT_UTXO = OPCAT_KEY,
 }
 export const INPUT_TYPE_NAMES = [
   'nonWitnessUtxo',

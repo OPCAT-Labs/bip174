@@ -10,7 +10,7 @@ import {
   Transaction,
   TransactionFromBuffer,
 } from '../interfaces';
-import { GlobalTypes, InputTypes, OutputTypes } from '../typeFields.js';
+import { GlobalTypes, InputTypes, OPCAT_KEY_BUF, OutputTypes } from '../typeFields.js';
 import { PsbtAttributes } from './index.js';
 
 export function psbtFromBuffer(
@@ -310,17 +310,17 @@ export function psbtFromKeyVals(
           checkKeyBuffer('input', keyVal.key, InputTypes.TAP_MERKLE_ROOT);
           input.tapMerkleRoot = convert.inputs.tapMerkleRoot.decode(keyVal);
           break;
-        case InputTypes.OPCAT_UTXO:
-          checkKeyBuffer('input', keyVal.key, InputTypes.OPCAT_UTXO);
-          if (input.opcatUtxo !== undefined) {
-            throw new Error('Format Error: Input has multiple OPCAT_UTXO');
-          }
-          input.opcatUtxo = convert.inputs.opcatUtxo.decode(keyVal);
-          break;
         default:
-          // This will allow inclusion during serialization.
-          if (!input.unknownKeyVals) input.unknownKeyVals = [];
-          input.unknownKeyVals.push(keyVal);
+          if (OPCAT_KEY_BUF.equals(keyVal.key)) {
+              if (input.opcatUtxo !== undefined) {
+                throw new Error('Format Error: Input has multiple OPCAT_UTXO');
+              }
+              input.opcatUtxo = convert.inputs.opcatUtxo.decode(keyVal);
+          } else {
+            // This will allow inclusion during serialization.
+            if (!input.unknownKeyVals) input.unknownKeyVals = [];
+            input.unknownKeyVals.push(keyVal);
+          }
       }
     }
     inputs.push(input);
